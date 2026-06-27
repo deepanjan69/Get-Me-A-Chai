@@ -2,14 +2,22 @@ import mongoose from "mongoose";
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(`mongodb://localhost:27017/getmeachai`, {
-      useNewUrlParser: true,
-    });
-    console.log(`MongoDB Connected: {conn.connection.host}`);
-  } catch (error) {
-    console.error(error.message);
-    process.exit(1);
-  }
-}
+    console.log("Connecting to MongoDB...");
+    console.log(process.env.MONGODB_URI);
 
-export default connectDB
+    if (mongoose.connection.readyState === 1) {
+      console.log("Already connected");
+      return;
+    }
+
+    const conn = await mongoose.connect(process.env.MONGODB_URI);
+
+    console.log("Connected!");
+    console.log(conn.connection.host);
+  } catch (err) {
+    console.error("Connection failed");
+    console.error(err);
+  }
+};
+
+export default connectDB;

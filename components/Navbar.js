@@ -36,7 +36,7 @@ const Navbar = () => {
               <Link href={"/dashboard"} className="inline-flex items-center w-full p-2 hover:bg-gray-700 hover:text-heading rounded">Dashboard</Link>
             </li>
             <li>
-              <Link href="{`/${session.user.name}`}" className="inline-flex items-center w-full p-2 hover:bg-gray-700 hover:text-heading rounded">Your Page</Link>
+              <Link href={`/${session.user.name}`} className="inline-flex items-center w-full p-2 hover:bg-gray-700 hover:text-heading rounded">Your Page</Link>
             </li>
             <li>
               <Link href="#" className="inline-flex items-center w-full p-2 hover:bg-gray-700 hover:text-heading rounded">Earnings</Link>
