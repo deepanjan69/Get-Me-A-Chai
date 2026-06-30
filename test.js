@@ -1,21 +1,23 @@
-import mongoose from "mongoose";
+import Razorpay from "razorpay";
 import dotenv from "dotenv";
 
-dotenv.config({
-  path: ".env.local",
+dotenv.config({ path: ".env.local" });
+
+console.log(process.env.KEY_ID);
+console.log(process.env.KEY_SECRET);
+
+const razorpay = new Razorpay({
+  key_id: process.env.KEY_ID,
+  key_secret: process.env.KEY_SECRET,
 });
 
-console.log(process.env.MONGODB_URI);
+try {
+  const order = await razorpay.orders.create({
+    amount: 100,
+    currency: "INR",
+  });
 
-async function test() {
-  try {
-    const conn = await mongoose.connect(process.env.MONGODB_URI);
-    console.log("Connected!");
-    console.log(conn.connection.host);
-    process.exit(0);
-  } catch (err) {
-    console.error(err);
-  }
+  console.log(order);
+} catch (err) {
+  console.log(err);
 }
-
-test();

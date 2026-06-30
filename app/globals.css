@@ -1,2 +1,29 @@
 @import "tailwindcss";
 
+.supporters {
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 12px;
+}
+
+/* Width */
+.supporters::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Background track */
+.supporters::-webkit-scrollbar-track {
+    background: #0f172a;
+    border-radius: 9999px;
+}
+
+/* Draggable thumb */
+.supporters::-webkit-scrollbar-thumb {
+    background: #475569;
+    border-radius: 9999px;
+    border: 2px solid #0f172a; /* creates rounded spacing */
+}
+
+.supporters::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}

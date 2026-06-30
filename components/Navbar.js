@@ -14,7 +14,7 @@ const Navbar = () => {
   //   </>
   // }
   return (
-    <nav className='bg-gray-900 text-white flex justify-between px-4 h-13 items-center'>
+    <nav className='bg-gray-900 text-white flex justify-between sm:px-4 w-full md:h-13 flex-col md:flex-row items-center'>
       <Link href={"/"} className="logo font-bold text-lg flex justify-center items-center">
         <img src="/tea.gif" width={44} alt="" />
         <span>GetMeaCHAI!</span>
